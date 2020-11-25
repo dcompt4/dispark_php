@@ -1,12 +1,12 @@
 <?php
-$production_host = 'localhost';
+$production_host = 'localhost;port=3308';
 $dev_host = "aquaticgermplasm.com";
 
-$db_prototype = 'tagdatas_aggrc';
+$db_prototype = 'dispark';
 
-$host = "mysql:host=". $dev_host . ";dbname=" . $db_prototype;
-$dbUser = "tagdatas_aggrc";
-$dbPass = "Corona2020*";
+$host = "mysql:host=". $production_host . ";dbname=" . $db_prototype;
+$dbUser = "root";
+$dbPass = "";
 
 
  ?>
