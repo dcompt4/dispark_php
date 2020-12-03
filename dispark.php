@@ -36,6 +36,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
  // echo json_encode($result);
 }
 if ($_SERVER['REQUEST_METHOD'] == "PUT"){
+
+    $sql = "SELECT * FROM parks WHERE createdBy = :createdBy";
+    $query = $db->prepare($sql);
+    $query->execute(array(
+        ":createdBy" => $data-> userID,
+    ));
+    $query->setFetchMode(PDO::FETCH_ASSOC);
+    $rows = $query->fetchAll();
+    $results["parks"] = $rows;
+
+    echo json_encode($results);
   /*$sql = "UPDATE application_info SET active = :active WHERE appID = :appID";
   $query = $db->prepare($sql);
   if($query->execute(array(":active"=>$data->active, ":appID"=>$data->appID))){
