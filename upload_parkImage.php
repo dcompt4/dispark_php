@@ -10,7 +10,7 @@ $db = new PDO($host, $dbUser, $dbPass);
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-    $target_dir = "uploads/publications/";
+    $target_dir = "uploads/park_images/";
     $target_fileName =  time() . '_' . basename($_FILES["fileToUpload"]["name"]);
     $target_file = $target_dir . $target_fileName;
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
