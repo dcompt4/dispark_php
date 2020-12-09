@@ -24,8 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] == "GET"){
 }
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
-    $sql = "INSERT INTO parks(parkName, parkAddress, parkBio, pavilions, tennis, baseball, soccer, basketball, parkImage, modifiedType)
-                                    values (:parkName, :parkAddress, :parkBio, :pavilions, :tennis, :baseball, :soccer, :basketball, :parkImage, 'Add')";
+    $sql = "INSERT INTO parks(parkName, parkAddress, parkBio, pavilions, tennis, baseball, soccer, basketball, parkImage, createdBy, modifiedBy, modifiedType)
+                                    values (:parkName, :parkAddress, :parkBio, :pavilions, :tennis, :baseball, :soccer, :basketball, :parkImage, :createdBy, :modifiedBy, 'Add')";
     $query = $db->prepare($sql);
     $query->execute(array(":parkName" => $data->park-> parkName,
         ":parkAddress" => $data->park-> parkAddress,
@@ -35,9 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
         ":baseball" => $data->park-> baseball,
         ":soccer" => $data->park-> soccer,
         ":basketball" => $data->park-> basketball,
-        ":parkImage" => $data->park-> parkImage
-       /* ":createdBy" => $data->park-> createdBy,
-        ":modifiedBy" => $data->park-> modifiedBy*/
+        ":parkImage" => $data->park-> parkImage,
+        ":createdBy" => $data->park-> createdBy,
+        ":modifiedBy" => $data->park-> modifiedBy
     ));
 
     $lastID = $db->lastInsertId();
